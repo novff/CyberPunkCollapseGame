@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerCameraController : MonoBehaviour
 {
     public float MouseSensitivity = 400F;
-    //theres no rigidity
     public Transform PlayerBody;
     float XRotation = 0f;
 
