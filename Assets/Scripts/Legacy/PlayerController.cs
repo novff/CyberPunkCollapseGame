@@ -40,12 +40,12 @@ public class PlayerController : MonoBehaviour
                     Velocity.y = -1F;
                     IsJumpPressed = false;
                 }
-            if(!isGrounded && Velocity.y > 0)//reseting the gravitational velocity on impact with the ground
+            if(!isGrounded && Velocity.y > 0)
                 {
                     IsJumpPressed = true;
                 }
 
-            if (Input.GetButtonDown("Jump") && isGrounded) //jump
+            if (Input.GetButtonDown("Jump") ) //jump&& isGrounded
                 {
                     //IsJumpPressed = true;
                     Velocity.y = Mathf.Sqrt(JumpHeight * -2F * Gravity);
