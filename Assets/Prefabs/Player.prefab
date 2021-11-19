@@ -116,9 +116,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 487111281401065357}
+  - component: {fileID: 487111281401064560}
   - component: {fileID: 487111281401065358}
   - component: {fileID: 487111281401065359}
-  - component: {fileID: 487111281401064560}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -142,6 +142,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &487111281401064560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487111281401064561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e597957ee4efa2438db56073d8f69e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerCam: {fileID: 487111280979879021}
+  Orientation: {fileID: 487111280698883317}
+  moveSpeed: 20000
+  maxSpeed: 20
+  grounded: 0
+  Ground:
+    serializedVersion: 2
+    m_Bits: 64
+  counterMovement: 0.175
+  maxSlopeAngle: 35
+  slideForce: 400
+  slideCounterMovement: 0.3
+  HeadCollider: {fileID: 487111280731729379}
+  jumpForce: 550
 --- !u!136 &487111281401065358
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -172,32 +198,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &487111281401064560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 487111281401064561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e597957ee4efa2438db56073d8f69e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerCam: {fileID: 487111280979879021}
-  Orientation: {fileID: 487111280698883317}
-  moveSpeed: 4500
-  maxSpeed: 15
-  grounded: 0
-  Ground:
-    serializedVersion: 2
-    m_Bits: 64
-  counterMovement: 0.175
-  maxSlopeAngle: 35
-  slideForce: 400
-  slideCounterMovement: 0.3
-  HeadCollider: {fileID: 487111280731729379}
-  jumpForce: 550
 --- !u!1 &487111281518243548
 GameObject:
   m_ObjectHideFlags: 0
