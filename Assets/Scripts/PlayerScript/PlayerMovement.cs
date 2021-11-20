@@ -46,17 +46,7 @@ public class PlayerMovement : MonoBehaviour
             HeadTouchesSealing = Physics.CheckSphere(HeadCollider.position, 0.5F, Ground);
 
             Movement();
-            //Crouching
-            if (crouching)
-                {
-                    StartCrouch();
-                    return;
-                }
-            //if (Input.GetKeyUp(KeyCode.LeftControl))
-            if (!crouching)
-                {
-                    StopCrouch();
-                }
+            
         }
     private void Update() 
         {
@@ -75,28 +65,33 @@ public class PlayerMovement : MonoBehaviour
             y = Input.GetAxisRaw("Vertical");
             jumping = Input.GetButton("Jump");
             crouching = Input.GetKey(KeyCode.LeftControl);
-      
-
-                
+            //Crouching
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+                {
+                    StartCrouch();
+                }
+            //if (Input.GetKeyUp(KeyCode.LeftControl))
+            if (Input.GetKeyUp(KeyCode.LeftControl))
+                {
+                    StopCrouch();
+                }
         }
 
     private void StartCrouch() 
         {
-            transform.localScale = Vector3.Lerp(crouchScale, playerScale, Time.deltaTime * 32);
-            
+            transform.localScale = Vector3.Lerp(crouchScale, playerScale, Time.deltaTime);
+            //transform.localScale = crouchScale;
             if(!HeadTouchesSealing)
                 {
                     transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
                 }
             
-            
         }
-
     private void StopCrouch() 
         {
             transform.localScale = Vector3.Lerp(playerScale, crouchScale, Time.deltaTime * 32);
             
-            //transform.localScale = playerScale;
+            transform.localScale = playerScale;
             //transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
         }
 
