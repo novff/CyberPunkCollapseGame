@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraMovement
+    - MapCameraScript
     - OptionsMenu
     - PlayerMovement
     - TerrainGeneration
@@ -31,6 +32,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
@@ -63,6 +65,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 84
+      Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
     - Class: 104
@@ -70,41 +74,45 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1512}
+      Script: {instanceID: 1510}
     - Class: 114
-      Script: {instanceID: 1594}
+      Script: {instanceID: 1592}
     - Class: 114
-      Script: {instanceID: 1660}
+      Script: {instanceID: 1658}
     - Class: 114
-      Script: {instanceID: 1740}
+      Script: {instanceID: 1738}
     - Class: 114
-      Script: {instanceID: 2012}
+      Script: {instanceID: 2010}
     - Class: 114
-      Script: {instanceID: 2022}
+      Script: {instanceID: 2020}
     - Class: 114
-      Script: {instanceID: 2312}
+      Script: {instanceID: 2140}
     - Class: 114
-      Script: {instanceID: 2424}
+      Script: {instanceID: 2310}
     - Class: 114
-      Script: {instanceID: 2466}
+      Script: {instanceID: 2422}
     - Class: 114
-      Script: {instanceID: 2586}
+      Script: {instanceID: 2464}
     - Class: 114
-      Script: {instanceID: 2772}
+      Script: {instanceID: 2584}
     - Class: 114
-      Script: {instanceID: 2854}
+      Script: {instanceID: 2770}
     - Class: 114
-      Script: {instanceID: 2878}
+      Script: {instanceID: 2852}
     - Class: 114
-      Script: {instanceID: 3122}
+      Script: {instanceID: 2876}
     - Class: 114
-      Script: {instanceID: 3430}
+      Script: {instanceID: 3120}
     - Class: 114
-      Script: {instanceID: 3790}
+      Script: {instanceID: 3428}
     - Class: 114
-      Script: {instanceID: 4052}
+      Script: {instanceID: 3788}
     - Class: 114
-      Script: {instanceID: 4410}
+      Script: {instanceID: 4050}
+    - Class: 114
+      Script: {instanceID: 4408}
+    - Class: 114
+      Script: {instanceID: 50648}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -122,6 +130,8 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -596,7 +606,13 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OptionsMenu
+  - hash:
+      serializedVersion: 2
+      Hash: 65b3a3b9a7779d539ec75a3ceddebdba
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MapCameraScript
   platform: 19
   scenePathNames:
   - Assets/Scenes/0.unity
-  playerPath: C:/Users/Maxim/Desktop/cpcbin/CyberpunkCollapseGame.exe
+  playerPath: F:/sources/UnityProjects/CyberPunkCollapseGame/LatestBuild/CyberpunkCollapseGame.exe

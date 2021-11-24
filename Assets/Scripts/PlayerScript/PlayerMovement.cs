@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour 
 {
@@ -61,6 +62,11 @@ public class PlayerMovement : MonoBehaviour
     //input registration
     private void PlayerInput() 
         {
+            if (Input.GetKeyUp(KeyCode.R))
+                {
+                    string currentSceneName = SceneManager.GetActiveScene().name;
+                    SceneManager.LoadScene(currentSceneName);
+                }
             x = Input.GetAxisRaw("Horizontal");
             y = Input.GetAxisRaw("Vertical");
             jumping = Input.GetButton("Jump");
