@@ -29,8 +29,9 @@ public class PlayerMovement : MonoBehaviour
     bool HeadTouchesSealing;
     //Jumping
     private bool readyToJump = true;
-    private float jumpCooldown = 0.25f;
+    private float jumpCooldown = 0.1f;
     public float jumpForce = 550f;
+    public int JumpCount = 1;
     //Input
     float x, y;
     bool jumping, sprinting, crouching;
@@ -47,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
             HeadTouchesSealing = Physics.CheckSphere(HeadCollider.position, 0.5F, Ground);
 
             Movement();
-            
         }
     private void Update() 
         {
@@ -91,7 +91,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
                 }
-            
         }
     private void StopCrouch() 
         {
@@ -114,8 +113,8 @@ public class PlayerMovement : MonoBehaviour
             CounterMovement(x, y, mag);
         
             //If holding jump && ready to jump, then jump
-            if (readyToJump && jumping) Jump();
-
+            if (readyToJump && jumping && JumpCount != 0) Jump();
+            if (grounded) JumpCount = 1;
             //Set max speed
             float maxSpeed = this.maxSpeed;
         
@@ -151,7 +150,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump() 
         {
-            if (grounded && readyToJump) 
+            
+            if (JumpCount != 0 && readyToJump) 
                 {
                     readyToJump = false;
 
@@ -163,7 +163,8 @@ public class PlayerMovement : MonoBehaviour
                     Vector3 vel = rb.velocity;
                     if (rb.velocity.y < 0.5f) rb.velocity = new Vector3(vel.x, 0, vel.z);
                     else if (rb.velocity.y > 0) rb.velocity = new Vector3(vel.x, vel.y / 2, vel.z);
-                    
+                    JumpCount -= 1;
+
                     Invoke(nameof(ResetJump), jumpCooldown);
                 }
         }

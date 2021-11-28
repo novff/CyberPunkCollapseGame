@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class OptionsMenu : MonoBehaviour
 {
-    public void SetVolume(float volume)
-        {}
+    public GameObject Debug;
+    public void SetVolume(float volume){}
+    public void DebugInfoToggle(bool flag)
+        {
+            if (flag) Debug.SetActive(true);
+            else Debug.SetActive(false);
+        }
 }
