@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class UIBehaviour : MonoBehaviour
 {
     public static bool IsPaused = false;
-    public  bool InOptions = false;
+    public bool InOptions = false;
+    public static bool InInventory = false;
     public GameObject PauseMenu;
     public GameObject InGameUI;
     public GameObject Inventory;
@@ -44,20 +45,39 @@ public class UIBehaviour : MonoBehaviour
         {
             Application.Quit();
         }
+    public void InventoryOpen()
+        {
+            Inventory.SetActive(true);
+            InGameUI.SetActive(false);
+            Time.timeScale = 0f;
+            InInventory = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true; 
+        }
+    public void InventoryClose()
+        {
+            Inventory.SetActive(false);
+            InGameUI.SetActive(true);
+            Time.timeScale = 1f;
+            InInventory = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false; 
+        }
+
+
     public void CheckState()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
                 { 
                     if(!InOptions)
                         {
-                            if (IsPaused)
+                            if(!InInventory)
                                 {
-                                    Resume();
+                                    if(IsPaused) Resume();
+                                    else Pause();
                                 }
-                            else
-                                {
-                                    Pause();
-                                }
+                            else InventoryClose();
+                            
                         }
                     else 
                         {
@@ -67,7 +87,17 @@ public class UIBehaviour : MonoBehaviour
                         }
                     
                 }
+            if (Input.GetKeyDown(KeyCode.Tab)) 
+                {
+                    if(!IsPaused)
+                        {
+                            if(InInventory) InventoryClose();
+                            else InventoryOpen();
+                        }
+                }
         }
+
+    
     //public void ToMenu()
     //    {
     //        SceneManager.LoadScene(0);

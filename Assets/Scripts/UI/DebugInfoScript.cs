@@ -11,12 +11,14 @@ public class DebugInfoScript : MonoBehaviour
     public Text YcoordText;
     public Text ZcoordText;
     public Text VelocityText;
+    public Text PlayerInputsText;
     public void Update ()
         {
             FPSCounter();
 
             PlayerDebugCoordinates();
             PlayerVelocity();
+            PlayerInputs();
         }
 
     public void FPSCounter()
@@ -41,6 +43,24 @@ public class DebugInfoScript : MonoBehaviour
             Vector3 vel = rb.velocity;
             float rbvel = vel.magnitude;
             VelocityText.text = "Vel: " + rbvel.ToString();
+        }
+    private void PlayerInputs()
+        {
+            string JText = "";
+            if(Input.GetButton("Jump")) JText = "Jump ";
+            string WText = "";
+            if(Input.GetKey(KeyCode.W)) WText = "W ";
+            string AText = "";
+            if(Input.GetKey(KeyCode.A)) AText = "A ";
+            string SText = "";
+            if(Input.GetKey(KeyCode.S)) SText = "S ";
+            string DText = "";
+            if(Input.GetKey(KeyCode.D)) DText = "D ";
+            string CrouchText = "";
+            if(Input.GetKey(KeyCode.LeftControl)) CrouchText = "Crouch ";
+
+            PlayerInputsText.text = WText + AText + SText + DText + JText + CrouchText;
+
         }
 }
 

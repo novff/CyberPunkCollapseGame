@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     bool HeadTouchesSealing;
     //Jumping
     private bool readyToJump = true;
-    private float jumpCooldown = 0.1f;
+    private float jumpCooldown = 0.5f;
     public float jumpForce = 550f;
     public int JumpCount = 1;
     //Input
@@ -52,12 +52,15 @@ public class PlayerMovement : MonoBehaviour
     private void Update() 
         {
             bool localPause = UIBehaviour.IsPaused;
+            bool localInInventory = UIBehaviour.InInventory;
             if(!localPause)
                 {
-                    PlayerInput();
-                    Look();
+                    if(!localInInventory)
+                        {
+                            PlayerInput();
+                            Look();
+                        }
                 }
-            
         }
     //input registration
     private void PlayerInput() 
